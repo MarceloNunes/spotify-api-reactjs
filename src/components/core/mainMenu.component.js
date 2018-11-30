@@ -4,7 +4,7 @@ import { Menu, Container, Icon } from 'semantic-ui-react'
 export const MainMenu = () => (
   <Menu fixed='top' inverted>
     <Container>
-      <Menu.Item header>
+      <Menu.Item header style={{ borderLeftWidth: '0' }}>
         <Icon inverted name="spotify" size="big" color="green"/>
         Spotify Artist Search
       </Menu.Item>
