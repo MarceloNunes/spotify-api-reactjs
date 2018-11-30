@@ -1,2 +1,3 @@
-# spotify-api-reactjs
-A simple React.js/Redux.js application based on Spotify API
+# Spotify API / React.js App
+
+A simple React.js/Redux.js application using the Spotify API
