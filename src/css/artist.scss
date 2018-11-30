@@ -17,7 +17,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        max-width: 700px;
+        max-width: 500px;
         min-width: 350px;
         padding: 12px;
         vertical-align: middle;
@@ -30,5 +30,9 @@
 }
 
 .artist-list {
-
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }

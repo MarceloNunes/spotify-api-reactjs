@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Button, Dimmer, Loader, Icon, Input } from 'semantic-ui-react';
+import { Container, Input } from 'semantic-ui-react';
 import { MainMenu } from '../core/mainMenu.component';
+import { ArtistCard } from './artistCard.component';
 
 const mapStateToProps = state => ({
   user: state.user
@@ -9,7 +10,7 @@ const mapStateToProps = state => ({
 
 export class ArtistSearchPage extends React.Component {
   state = {
-    keywords: '',
+    keywords: 'ABC',
     loading: false
   };
 
@@ -33,6 +34,18 @@ render() {
             value={this.state.keywords}
             onChange={this.handleKeywordsChange} />
         </div>
+        {
+          this.state.keywords.length > 0 &&
+          <Container>
+            <div className='artist-list'>
+            <ArtistCard />
+            <ArtistCard />
+            <ArtistCard />
+            <ArtistCard />
+            <ArtistCard />
+            </div>
+          </Container>
+        }
       </div>
     );
   }
