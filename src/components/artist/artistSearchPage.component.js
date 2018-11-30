@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 export class ArtistSearchPage extends React.Component {
   state = {
-    keywords: 'ABC',
+    keywords: '',
     loading: false
   };
 
