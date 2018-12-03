@@ -14,7 +14,7 @@ export class LoginPage extends React.Component {
     loading: false
   };
 
-  componentDidMount() {
+  componentWillMount() {
     const params = this.props.location.hash && this.props.location.hash.split('&').reduce((result, item) => {
       const split_item = item.split('=');
       result[split_item[0].replace('#', '')] = split_item[1];
@@ -37,7 +37,7 @@ export class LoginPage extends React.Component {
 
     window.location = 'https://accounts.spotify.com/authorize?client_id=' +
       config.clientId + '&redirect_uri=' +
-      encodeURIComponent('http://localhost:' + config.port) + '?&response_type=token';
+      encodeURIComponent(window.location.origin) + '&response_type=token';
   }
 
   render() {

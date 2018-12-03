@@ -12,18 +12,21 @@
   -o-transition: .5s;
   transition: .5s;
 
-  .ui.input>input {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 12px;
-    vertical-align: middle;
-    width: 100%;
-    background-color: #333;
-    color: white;
+  .ui.input {
+    input {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 12px;
+      vertical-align: middle;
+      width: 100%;
+      background-color: #555;
+      color: white;
+      border: 1px solid #888;
+    }
 
-    i {
+    i.search.icon {
         color: white;
     }
   }
