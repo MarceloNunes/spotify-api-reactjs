@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 import { Container, Input } from 'semantic-ui-react';
 import MainMenu from '../core/mainMenu.component';
 import { ArtistCard } from './artistCard.component';
+import { queryArtists } from '../../selectors/artists.selector';
 
 const mapStateToProps = state => ({
-  user: state.user
+  artists: state.artists
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onQueryArtists: keywords => dispatch(queryArtists(keywords)),
 });
 
 export class ArtistSearchPage extends React.Component {
@@ -15,14 +20,26 @@ export class ArtistSearchPage extends React.Component {
   };
 
   handleKeywordsChange = e => {
-  const keywords = e.target.value;
+    const keywords = e.target.value;
 
-  this.setState(prevState => Object.assign(prevState, {
-    keywords
-  }));
-};
+    this.setState(prevState => Object.assign(prevState, {
+      keywords,
+      loading: true
+    }));
 
-render() {
+    this.props.onQueryArtists(keywords).then(() => {
+      this.setState(prevState => Object.assign(prevState, {
+        loading: false
+      }));
+      console.log(this.props.artists);
+    });
+
+    setTimeout(() => {
+
+    }, 1000);
+  };
+
+  render() {
     return (
       <div>
         <MainMenu />
@@ -31,20 +48,19 @@ render() {
             <Input
               size='huge'
               icon='search'
-              placeholder='Search for an artist...'
-              value={this.state.keywords}
-              onChange={this.handleKeywordsChange} />
+              placeholder='Search for an artist.....'
+              value={ this.state.keywords }
+              onChange={ this.handleKeywordsChange }
+              loading={ this.state.loading } />
           </Container>
         </div>
         {
           this.state.keywords.length > 0 &&
           <Container className='artist-name-container'>
             <div className='artist-list'>
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
-            <ArtistCard />
+            { this.props.artists.map(artist =>
+              <ArtistCard artist={artist} />
+            )}
             </div>
           </Container>
         }
@@ -54,5 +70,6 @@ render() {
 }
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ArtistSearchPage);

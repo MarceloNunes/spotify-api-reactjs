@@ -22,3 +22,20 @@ body {
 .ui.menu .item:before {
   display: none;
 }
+
+.item-cover-picture {
+  background-color: #444;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 250px;
+  justify-content: center;
+  vertical-align: middle;
+  width: 250px;
+}
+
+.no-padding {
+  padding: 0;
+}

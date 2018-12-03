@@ -1,2 +1,3 @@
 
 export const FETCH_OAUTH_USER = 'FETCH_OAUTH_USER';
+export const QUERY_ARTISTS = 'QUERY_ARTISTS';

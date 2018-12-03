@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Button, Icon } from 'semantic-ui-react';
 import MainMenu from '../core/mainMenu.component';
 import config from '../../../config/config';
-// import { access } from 'fs';
 
 const mapStateToProps = state => ({
   user: state.user
