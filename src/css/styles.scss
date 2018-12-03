@@ -5,3 +5,20 @@ body {
   color: white;
   background-color: #282828;
 }
+
+.ui.card {
+  background-color: #222;
+
+  .content>.header,
+  .content>.description {
+      color: white;
+  }
+}
+
+.ui.star.rating .icon {
+  color: #555;
+}
+
+.ui.menu .item:before {
+  display: none;
+}

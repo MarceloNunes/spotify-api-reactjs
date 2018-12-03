@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container, Input } from 'semantic-ui-react';
-import { MainMenu } from '../core/mainMenu.component';
+import MainMenu from '../core/mainMenu.component';
 import { ArtistCard } from './artistCard.component';
 
 const mapStateToProps = state => ({
@@ -27,16 +27,18 @@ render() {
       <div>
         <MainMenu />
         <div className={ 'artist-search' + (this.state.keywords.length === 0 ? ' fullscreen' : '')} >
-          <Input
-            size='huge'
-            icon='search'
-            placeholder='Search for an artist...'
-            value={this.state.keywords}
-            onChange={this.handleKeywordsChange} />
+          <Container>
+            <Input
+              size='huge'
+              icon='search'
+              placeholder='Search for an artist...'
+              value={this.state.keywords}
+              onChange={this.handleKeywordsChange} />
+          </Container>
         </div>
         {
           this.state.keywords.length > 0 &&
-          <Container>
+          <Container className='artist-name-container'>
             <div className='artist-list'>
             <ArtistCard />
             <ArtistCard />
