@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Icon, Rating } from 'semantic-ui-react';
+import { Card, Rating } from 'semantic-ui-react';
+import numberFormatter from 'number-formatter';
 
 export const ArtistCard = ({artist: {followers, id, images, name, popularity}}) => (
   <Card style={{ margin: '14px', width: '250px'}}>
@@ -8,7 +9,7 @@ export const ArtistCard = ({artist: {followers, id, images, name, popularity}}) 
     </div>
     <Card.Content>
       <Card.Header>{name}</Card.Header>
-      <Card.Description>{followers} followers</Card.Description>
+      <Card.Description>{numberFormatter('#,##0.', followers)} followers</Card.Description>
     </Card.Content>
     <Card.Content extra>
       <Rating disabled

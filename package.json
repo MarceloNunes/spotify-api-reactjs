@@ -44,6 +44,7 @@
     "mongoose-unique-validator": "^2.0.2",
     "node-sass": "^4.9.4",
     "normalize.css": "^8.0.0",
+    "number-formatter": "^1.2.0",
     "numeral": "^2.0.6",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
