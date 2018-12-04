@@ -3,7 +3,7 @@ import { Card, Rating } from 'semantic-ui-react';
 import numberFormatter from 'number-formatter';
 
 export const ArtistCard = ({artist: {followers, id, images, name, popularity}}) => (
-  <Card style={{ margin: '14px', width: '250px'}}>
+  <Card>
     <div className='item-cover-picture'
       style={{backgroundImage: 'url(' + images + ')'}}>
     </div>

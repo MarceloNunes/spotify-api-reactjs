@@ -8,6 +8,8 @@ body {
 
 .ui.card {
   background-color: #222;
+  width: 200px;
+  margin: 0 12px 12px 12px;
 
   .content>.header,
   .content>.description {
@@ -30,10 +32,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  height: 250px;
+  height: 200px;
   justify-content: center;
   vertical-align: middle;
-  width: 250px;
+  width: 200px;
 }
 
 .no-padding {

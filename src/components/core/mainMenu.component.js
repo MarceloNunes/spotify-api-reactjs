@@ -40,8 +40,6 @@ export class MainMenu extends React.Component {
             <Menu.Menu position='right'>
               <Menu.Item>
                 <Image src={this.props.user.images[0].url} size='mini' circular />
-                &nbsp;&nbsp;
-                {this.props.user.display_name}
               </Menu.Item>
 
               <Menu.Item onClick={this.handleLogout}>
