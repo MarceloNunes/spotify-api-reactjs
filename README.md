@@ -57,3 +57,36 @@ The algorithm that selects the best fitted image takes as input a list of images
 
 The artists are displayed in cards implemented by the `ArtistCard` component ([artistCard.component.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/components/artists/artistCard.component.js)). When the card is clicked it send the user to the list of albums.
 
+### Step 3: List the albums of an artist. 
+
+The Albums List page ([albumsListPage.component.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/components/albums/albumsListPage.component.js)) displays two pieces of information: The artist's name and the list of albums.
+
+**Artist's name**: On ordinary navigation, the information about the artist is already available on the `artists` reducer loaded on the search page. So, to avoid redundant API call, it first look for the available artists to find the information about the selected user. 
+
+However, in non-ordinary navigation (for instace, if the user follows a direct link or hits F5 to reload) the information about the selected user will not be available on the reducers. In this case a selector is called to fetch the information about the specific user that was selected. The returned information is transformed by the approppriate reducer the same way it was done on *Step 2*.
+
+**List of Albums**: The first step to obtain the list of albums is to reset the `albums` reducer. After it is called a selector that communicates with the API using the `axios` module ([albums.selector.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/selectors/albums.selector.js)). The API response is dispatched to the appropriate reducer who filters only the information that is needed for the application ([albums.reducer.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/reducers/albums.reducer.js)). The items of the reduced list of albums contain the following fields: 
+
+- `id`: artists's unique ID
+- `name`: album title
+- `artist`: artist name
+- `image`: best fitted image
+- `externalUrl` : URL of this album at the Spotify website
+- `releseDate`: release date
+- `totalTracks`: total number of tracks of the album
+
+The algorith to select the artist name get a list of artists' objects and returns a name. If this list contains opnly one artist, it returns the name of this artist. If it contains two or three artists, it returns all the name comma separated, If it contains more than three artists it returns the string `"Various artists"`.
+
+The best fitted image is selected using the same algoritm as in *Step 2*.
+
+**Load more albums**: The list of albums selector will only fetch 25 albums on each call, but several artists have more than 25 albums on its catalog. To fetch more albums from the catalog the user can click the "Load more albums" button. This will fetch more 25 albums fro mthe API starting with an offset equal to the current length of the list of albums. When the size of the fetch is smaller than 25, the button is hidden.
+
+> TODO: implement this "Load more" feature to the artist search.
+
+> TODO: Remove the Load More albums button and load all albuns recursively since the beginning. 
+
+### Step 4: Going back to the artists' searh page
+
+When going back to the artists' search page, the last keywords that was stored on `localStorage` is restored and the last query is repeated. 
+
+> TODO: Store the keyword using a Subscriber.
