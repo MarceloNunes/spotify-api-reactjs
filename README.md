@@ -37,7 +37,7 @@ The application lands on a login page whose component is implemented on [loginPa
 
 After authentication on Spotify, the application lands back on the same Login page. This time, it extracts the access token from `props.location.hash`and stores it on `localStorage`. After, it redirects to the ArtistSearch page.
 
-> TODO: Store the access token using a Subscriber.
+> TODO: Store the access token using `subscribe(listener)`.
 
 ### Step 2: Search artist by keyword
 
@@ -89,4 +89,4 @@ The best fitted image is selected using the same algoritm as in *Step 2*.
 
 When going back to the artists' search page, the last keywords that was stored on `localStorage` is restored and the last query is repeated. 
 
-> TODO: Store the keyword using a Subscriber.
+> TODO: Store the keyword using a  `subscribe(listener)`.
