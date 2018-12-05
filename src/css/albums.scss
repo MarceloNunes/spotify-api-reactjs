@@ -27,4 +27,15 @@
       text-align: center;
     }
   }
+
+  .load-more-button-container {
+    display: flex;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    justify-content: center;
+
+    .button {
+      min-width: 300px;
+    }
+  }
 }

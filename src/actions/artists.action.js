@@ -1,18 +1,18 @@
 import {
-    QUERY_ARTISTS,
-    GET_ARTIST
+    ARTISTS__QUERY,
+    ARTISTS__FETCH_ONE
 } from './actionTypes';
 
 export const queryArtistsAction = artists => {
   return {
-    type: QUERY_ARTISTS,
+    type: ARTISTS__QUERY,
     artists
   }
 };
 
 export const getArtistAction = artist => {
   return {
-    type: GET_ARTIST,
+    type: ARTISTS__FETCH_ONE,
     artist
   }
 };

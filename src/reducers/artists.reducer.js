@@ -1,6 +1,6 @@
 import {
-  QUERY_ARTISTS,
-  GET_ARTIST
+  ARTISTS__QUERY,
+  ARTISTS__FETCH_ONE
 } from '../actions/actionTypes';
 
 const reduceArtist = ({followers, id, images, name, popularity}) => ({
@@ -18,10 +18,10 @@ const getBestImage = images => images && images.length > 0 &&
 
 export const ArtistsReducer = (state = [], action) => {
   switch (action.type) {
-    case QUERY_ARTISTS:
+    case ARTISTS__QUERY:
       return (action.artists && action.artists.artists.items || [])
         .map(artist => reduceArtist(artist));
-    case GET_ARTIST:
+    case ARTISTS__FETCH_ONE:
       return action.artist && [ reduceArtist(action.artist) ];
     default:
       return state;

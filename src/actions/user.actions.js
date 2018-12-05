@@ -1,10 +1,10 @@
 import {
-  FETCH_OAUTH_USER
+  USER__FETCH_OAUTH
 } from './actionTypes';
 
 export const fetchOauthUserAction = user => {
   return {
-    type: FETCH_OAUTH_USER,
+    type: USER__FETCH_OAUTH,
     user
   }
 };

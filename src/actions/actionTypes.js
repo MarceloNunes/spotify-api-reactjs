@@ -1,5 +1,8 @@
 
-export const FETCH_OAUTH_USER = 'FETCH_OAUTH_USER';
-export const GET_ALBUMS_BY_ARTIST = 'GET_ALBUMS_BY_ARTIST';
-export const GET_ARTIST = 'GET_ARTIST';
-export const QUERY_ARTISTS = 'QUERY_ARTISTS';
+export const ALBUMS__GET_BY_ARTIST = 'ALBUMS__GET_BY_ARTIST';
+export const ALBUMS__RESET = 'ALBUMS__RESET';
+
+export const ARTISTS__FETCH_ONE = 'ARTISTS__FETCH_ONE';
+export const ARTISTS__QUERY = 'ARTISTS__QUERY';
+
+export const USER__FETCH_OAUTH = 'USER__FETCH_OAUTH';

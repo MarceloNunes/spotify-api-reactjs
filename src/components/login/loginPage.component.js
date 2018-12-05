@@ -24,7 +24,6 @@ export class LoginPage extends React.Component {
     const access_token = params && params.access_token || null;
 
     if (access_token) {
-      console.log(this.props);
       localStorage.setItem('ACCESS_TOKEN', access_token);
       this.props.history.push("/artists");
     }
