@@ -14,7 +14,7 @@ This application is running live on Heroku service, in the following link:
 
 ## Installation
 
-To install the application on your local environment, first make sure to have bith Git and Node.js installed on your system. Then open a command line terminal and type the following commands.
+To install the application on your local environment, first make sure to have both Git and Node.js installed on your system. Then open a command line terminal and type the following commands.
 
 ```
 git@github.com:MarceloNunes/spotify-api-reactjs.git
@@ -31,11 +31,11 @@ Next, an overview of the implementation and the technical decision on each step 
 
 ### Step 1: Login with an Spotify Account
 
-The application lands on a login page whose component is implemented on [loginPage.component.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/components/login/loginPage.component.js). Initially it is presented a big Login Button that, when cliced pasport the user to the Spotify authentication page.
+The application lands on a login page whose component is implemented on [loginPage.component.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/components/login/loginPage.component.js). Initially it is presented a big Login Button that, when clicked transport the user to the Spotify authentication page.
 
-> TODO: The navigation to the Spotify Authentiction page is done using `window.location`. This can be improved to a popup using `window.open`.
+> TODO: The navigation to the Spotify Authentication page is done using `window.location`. This can be improved to a popup using `window.open`.
 
-After authentication on Spotify, the application lands back on the same Login page. This time, it extracts the access token from `props.location.hash`and stores it on `localStorage`. After, it reirects to the ArtistSearch page.
+After authentication on Spotify, the application lands back on the same Login page. This time, it extracts the access token from `props.location.hash`and stores it on `localStorage`. After, it redirects to the ArtistSearch page.
 
 > TODO: Store the access token using a Subscriber.
 
@@ -43,7 +43,7 @@ After authentication on Spotify, the application lands back on the same Login pa
 
 The artist search page is implemented on [artistsSearchPage.component.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/components/artists/artistsSearchPage.component.js). This page presents an input box for the keywords. The search is started when the user types at least two characters and updates as the user types.
 
-> TODO: improve syncrhonization on the *"update as you type"* feature
+> TODO: improve synchronization on the *"update as you type"* feature
 
 Each updates triggers a selector that performs the communication with the API using the `axios` module ([artists.selector.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/selectors/artists.selector.js)). The API response is dispatched to the appropriate reducer who filters only the information that is needed for the application ([artists.reducer.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/reducers/artists.reducer.js)). The items of the reduced list of artists contain the following fields: 
 
@@ -63,7 +63,7 @@ The Albums List page ([albumsListPage.component.js](https://github.com/MarceloNu
 
 **Artist's name**: On ordinary navigation, the information about the artist is already available on the `artists` reducer loaded on the search page. So, to avoid redundant API call, it first look for the available artists to find the information about the selected user. 
 
-However, in non-ordinary navigation (for instace, if the user follows a direct link or hits F5 to reload) the information about the selected user will not be available on the reducers. In this case a selector is called to fetch the information about the specific user that was selected. The returned information is transformed by the approppriate reducer the same way it was done on *Step 2*.
+However, in non-ordinary navigation (for instance, if the user follows a direct link or hits F5 to reload) the information about the selected user will not be available on the reducers. In this case a selector is called to fetch the information about the specific user that was selected. The returned information is transformed by the appropriate reducer the same way it was done on *Step 2*.
 
 **List of Albums**: The first step to obtain the list of albums is to reset the `albums` reducer. After it is called a selector that communicates with the API using the `axios` module ([albums.selector.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/selectors/albums.selector.js)). The API response is dispatched to the appropriate reducer who filters only the information that is needed for the application ([albums.reducer.js](https://github.com/MarceloNunes/spotify-api-reactjs/blob/master/src/reducers/albums.reducer.js)). The items of the reduced list of albums contain the following fields: 
 
@@ -75,17 +75,17 @@ However, in non-ordinary navigation (for instace, if the user follows a direct l
 - `releseDate`: release date
 - `totalTracks`: total number of tracks of the album
 
-The algorith to select the artist name get a list of artists' objects and returns a name. If this list contains opnly one artist, it returns the name of this artist. If it contains two or three artists, it returns all the name comma separated, If it contains more than three artists it returns the string `"Various artists"`.
+The algorithm to select the artist name get a list of artists' objects and returns a name. If this list contains only one artist, it returns the name of this artist. If it contains two or three artists, it returns all the name comma separated, If it contains more than three artists it returns the string `"Various artists"`.
 
 The best fitted image is selected using the same algoritm as in *Step 2*.
 
-**Load more albums**: The list of albums selector will only fetch 25 albums on each call, but several artists have more than 25 albums on its catalog. To fetch more albums from the catalog the user can click the "Load more albums" button. This will fetch more 25 albums fro mthe API starting with an offset equal to the current length of the list of albums. When the size of the fetch is smaller than 25, the button is hidden.
+**Load more albums**: The list of albums selector will only fetch 25 albums on each call, but several artists have more than 25 albums on its catalog. To fetch more albums from the catalog the user can click the "Load more albums" button. This will fetch more 25 albums from the API starting with an offset equal to the current length of the list of albums. When the size of the fetch is smaller than 25, the button is hidden.
 
 > TODO: implement this "Load more" feature to the artist search.
 
-> TODO: Remove the Load More albums button and load all albuns recursively since the beginning. 
+> TODO: Remove the Load More albums button and load all albums recursively since the beginning. 
 
-### Step 4: Going back to the artists' searh page
+### Step 4: Going back to the artists' search page
 
 When going back to the artists' search page, the last keywords that was stored on `localStorage` is restored and the last query is repeated. 
 
