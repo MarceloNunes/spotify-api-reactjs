@@ -1,5 +1,6 @@
 @import "./login-page";
 @import "./artist.scss";
+@import "./albums.scss";
 
 body {
   color: white;
@@ -9,12 +10,19 @@ body {
 .ui.card {
   background-color: #222;
   width: 200px;
-  margin: 0 12px 12px 12px;
+  margin: 12px;
 
   .content>.header,
   .content>.description {
       color: white;
   }
+}
+
+.ui.cards a.card:hover,
+.ui.link.cards .card:hover,
+a.ui.card:hover,
+.ui.link.card:hover {
+  background-color: #555;
 }
 
 .ui.star.rating .icon {

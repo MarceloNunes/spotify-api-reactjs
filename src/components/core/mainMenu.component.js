@@ -15,9 +15,7 @@ const mapDispatchToProps = (dispatch) => ({
 export class MainMenu extends React.Component {
   componentDidMount() {
     if (!this.props.user) {
-      this.props.onLoadUserData().then(() => {
-        console.log(this.props.user);
-      });
+      this.props.onLoadUserData().then();
     }
   }
 

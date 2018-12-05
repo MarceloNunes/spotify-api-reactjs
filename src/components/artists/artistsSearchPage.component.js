@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => ({
   onQueryArtists: keywords => dispatch(queryArtists(keywords)),
 });
 
-export class ArtistSearchPage extends React.Component {
+export class ArtistsSearchPage extends React.Component {
   state = {
     keywords: '',
     loading: false
@@ -31,24 +31,19 @@ export class ArtistSearchPage extends React.Component {
       this.setState(prevState => Object.assign(prevState, {
         loading: false
       }));
-      console.log(this.props.artists);
     });
-
-    setTimeout(() => {
-
-    }, 1000);
   };
 
   render() {
     return (
       <div>
         <MainMenu />
-        <div className={ 'artist-search' + (this.state.keywords.length === 0 ? ' fullscreen' : '')} >
+        <div className={ 'artist-search' + (this.state.keywords.length < 2 ? ' fullscreen' : '')} >
           <Container>
             <Input
               size='huge'
               icon='search'
-              placeholder='Search for an artist.....'
+              placeholder='Search for an artist...'
               value={ this.state.keywords }
               onChange={ this.handleKeywordsChange }
               loading={ this.state.loading } />
@@ -58,9 +53,14 @@ export class ArtistSearchPage extends React.Component {
           this.state.keywords.length > 0 &&
           <Container className='artist-name-container'>
             <div className='artist-list'>
-            { this.props.artists.map(artist =>
-              <ArtistCard artist={artist} />
-            )}
+              <div></div>
+              {
+                !this.state.loading && this.state.keywords.length >= 2 &&
+                this.props.artists.map(artist =>
+                  <ArtistCard artist={artist} history={this.props.history} />
+                )
+              }
+              <div></div>
             </div>
           </Container>
         }
@@ -72,4 +72,4 @@ export class ArtistSearchPage extends React.Component {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ArtistSearchPage);
+)(ArtistsSearchPage);

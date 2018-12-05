@@ -1,6 +1,9 @@
 import axios from 'axios';
 import config from '../../config/config';
-import { queryArtistsAction } from '../actions/artists.action';
+import {
+  queryArtistsAction,
+  getArtistAction
+} from '../actions/artists.action';
 
 export const queryArtists = keywords => dispatch => {
   const accessToken = localStorage.getItem('ACCESS_TOKEN');
@@ -18,8 +21,28 @@ export const queryArtists = keywords => dispatch => {
     })
     .catch(error => {
         throw(error);
-    //   localStorage.setItem('ACCESS_TOKEN', '');
-    //   window.location = '/';
+    });
+  } else {
+    return new Promise(response => response());
+  }
+}
+
+export const getArtistInfo = id => dispatch => {
+  const accessToken = localStorage.getItem('ACCESS_TOKEN');
+
+  if(accessToken) {
+    return axios({
+      method: 'get',
+      url: config.baseUrl + '/artists/' + id,
+      headers: {
+        Authorization: 'Bearer ' + accessToken
+      }
+    })
+    .then(response => {
+      dispatch(getArtistAction(response.data));
+    })
+    .catch(error => {
+        throw(error);
     });
   } else {
     return new Promise(response => response());

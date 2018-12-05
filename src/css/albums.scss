@@ -1,0 +1,30 @@
+.albums-list-page {
+  padding-top: 84px;
+
+  h1 {
+    padding-bottom: 24px;
+    padding-left: 12px;
+  }
+
+  .album-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 32px;
+
+    .artist-name {
+      padding-bottom: 12px;
+    }
+
+    div.extra {
+      color: white;
+    }
+
+    a.extra {
+      color: white;
+      background-color: #555;
+      text-align: center;
+    }
+  }
+}
