@@ -15,13 +15,24 @@ const mapDispatchToProps = (dispatch) => ({
 
 export class ArtistsSearchPage extends React.Component {
   state = {
-    keywords: '',
+    keywords: localStorage.getItem('ARTIST_SEACH_KEYWORDS') || '',
     loading: false
   };
 
+  componentWillMount() {
+    if (this.state.keywords) {
+      this.runQuery(this.state.keywords);
+    }
+  }
+
   handleKeywordsChange = e => {
     const keywords = e.target.value;
+    localStorage.setItem('ARTIST_SEACH_KEYWORDS', keywords),
 
+    this.runQuery(keywords);
+  };
+
+  runQuery = (keywords) => {
     this.setState(prevState => Object.assign(prevState, {
       keywords,
       loading: true
@@ -32,7 +43,7 @@ export class ArtistsSearchPage extends React.Component {
         loading: false
       }));
     });
-  };
+  }
 
   render() {
     return (

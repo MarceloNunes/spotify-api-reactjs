@@ -25,6 +25,7 @@ export class LoginPage extends React.Component {
 
     if (access_token) {
       localStorage.setItem('ACCESS_TOKEN', access_token);
+      localStorage.setItem('ARTIST_SEACH_KEYWORDS', '')
       this.props.history.push("/artists");
     }
   }
