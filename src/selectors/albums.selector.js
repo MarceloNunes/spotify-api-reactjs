@@ -18,13 +18,13 @@ export const getAlbumsByArtist = (id, offset = 0) => dispatch => {
         Authorization: 'Bearer ' + accessToken
       }
     })
-    .then(response => {
-      dispatch(getAlbumsByArtistAction(response.data));
-    })
-    .catch(error => {
+      .then(response => {
+        dispatch(getAlbumsByArtistAction(response.data));
+      })
+      .catch(error => {
         throw(error);
-    });
+      });
   } else {
     return new Promise(response => response());
   }
-}
+};

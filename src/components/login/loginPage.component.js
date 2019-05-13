@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
   user: state.user
 });
 
-export class LoginPage extends React.Component {
+class LoginPage extends React.Component {
   state = {
     loading: false
   };
@@ -38,7 +38,7 @@ export class LoginPage extends React.Component {
     window.location = 'https://accounts.spotify.com/authorize?client_id=' +
       config.clientId + '&redirect_uri=' +
       encodeURIComponent(window.location.origin) + '&response_type=token';
-  }
+  };
 
   render() {
     return (
@@ -49,7 +49,7 @@ export class LoginPage extends React.Component {
             color='green'
             size='huge'
             onClick={this.handleClickLoginButton}>
-            <div className='placeholder'></div>
+            <div className='placeholder'/>
             <div className='text' >Login</div>
             <div className='icon-container'>
               <Icon

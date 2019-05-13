@@ -18,14 +18,12 @@ const getBestImage = images => images && images.length > 0 &&
 
 export const ArtistsReducer = (state = [], action) => {
   switch (action.type) {
-    case ARTISTS__QUERY:
-      return (action.artists && action.artists.artists.items || [])
-        .map(artist => reduceArtist(artist));
-    case ARTISTS__FETCH_ONE:
-      return action.artist && [ reduceArtist(action.artist) ];
-    default:
-      return state;
+  case ARTISTS__QUERY:
+    return (action.artists && action.artists.artists.items || [])
+      .map(artist => reduceArtist(artist));
+  case ARTISTS__FETCH_ONE:
+    return action.artist && [reduceArtist(action.artist)];
+  default:
+    return state;
   }
 };
-
-export default ArtistsReducer;

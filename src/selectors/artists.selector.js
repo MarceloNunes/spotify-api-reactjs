@@ -16,16 +16,16 @@ export const queryArtists = keywords => dispatch => {
         Authorization: 'Bearer ' + accessToken
       }
     })
-    .then(response => {
-      dispatch(queryArtistsAction(response.data));
-    })
-    .catch(error => {
+      .then(response => {
+        dispatch(queryArtistsAction(response.data));
+      })
+      .catch(error => {
         throw(error);
-    });
+      });
   } else {
     return new Promise(response => response());
   }
-}
+};
 
 export const getArtistInfo = id => dispatch => {
   const accessToken = localStorage.getItem('ACCESS_TOKEN');
@@ -38,13 +38,13 @@ export const getArtistInfo = id => dispatch => {
         Authorization: 'Bearer ' + accessToken
       }
     })
-    .then(response => {
-      dispatch(getArtistAction(response.data));
-    })
-    .catch(error => {
+      .then(response => {
+        dispatch(getArtistAction(response.data));
+      })
+      .catch(error => {
         throw(error);
-    });
+      });
   } else {
     return new Promise(response => response());
   }
-}
+};

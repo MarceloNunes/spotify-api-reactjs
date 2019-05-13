@@ -13,18 +13,18 @@ export const fetchOauthUser = () => dispatch => {
         Authorization: 'Bearer ' + accessToken
       }
     })
-    .then(response => {
-      dispatch(fetchOauthUserAction(response.data));
-    })
-    .catch(() => {
-      localStorage.setItem('ACCESS_TOKEN', '');
-      window.location = '/';
-    });
+      .then(response => {
+        dispatch(fetchOauthUserAction(response.data));
+      })
+      .catch(() => {
+        localStorage.setItem('ACCESS_TOKEN', '');
+        window.location = '/';
+      });
   } else {
     return new Promise(response => response());
   }
-}
+};
 
 export const logoutUser = () => dispatch => {
   dispatch(fetchOauthUserAction(null));
-}
+};

@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Card, Link, Rating } from 'semantic-ui-react';
+import { Card, Rating } from 'semantic-ui-react';
 import numberFormatter from 'number-formatter';
 
-export class ArtistCard  extends React.Component {
+class ArtistCard  extends React.Component {
 
   handleCardClick = () => {
     this.props.history.push('/artist/' + this.props.artist.id + '/albums');
-  }
+  };
 
   render() {
     return (

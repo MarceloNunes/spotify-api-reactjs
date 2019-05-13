@@ -8,7 +8,7 @@ import AlbumsListPage from '../components/albums/albumsListPage.component';
 const AppRouter = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={LoginPage} exact={true} />
+      <Route path="/" component={LoginPage} exact />
       <Route path="/artists" component={ArtistsSearchPage} />
       <Route path="/artist/:id/albums" component={AlbumsListPage} />
     </Switch>

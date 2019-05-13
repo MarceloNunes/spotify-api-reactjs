@@ -9,7 +9,7 @@ import {
   resetAlbumsList
 } from '../../selectors/albums.selector';
 
-import { AlbumCard } from './albumCard.component';
+import AlbumCard from './albumCard.component';
 
 const mapStateToProps = state => ({
   artists: state.artists,
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => ({
   onResetAlbumsList: () => dispatch(resetAlbumsList())
 });
 
-export class AlbumsListPage extends React.Component {
+class AlbumsListPage extends React.Component {
   state = {
     artistName: '',
     keywords: '',

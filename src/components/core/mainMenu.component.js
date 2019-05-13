@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
   onLogoutUser: () => dispatch(logoutUser())
 });
 
-export class MainMenu extends React.Component {
+class MainMenu extends React.Component {
   componentDidMount() {
     if (!this.props.user) {
       this.props.onLoadUserData().then();
@@ -23,7 +23,7 @@ export class MainMenu extends React.Component {
     localStorage.setItem('ACCESS_TOKEN', null);
     this.props.onLogoutUser();
     window.location = '/';
-  }
+  };
 
   render() {
     return (
@@ -35,7 +35,7 @@ export class MainMenu extends React.Component {
           </Menu.Item>
           {
             this.props.user &&
-            <Menu.Menu position='right'>
+            <Menu.Menu position='right'>rock
               <Menu.Item>
                 <Image src={this.props.user.images[0].url} size='mini' circular />
               </Menu.Item>

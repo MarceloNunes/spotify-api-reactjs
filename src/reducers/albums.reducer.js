@@ -33,5 +33,3 @@ export const AlbumsReducer = (state = [], action) => {
     return state;
   }
 };
-
-export default AlbumsReducer;
