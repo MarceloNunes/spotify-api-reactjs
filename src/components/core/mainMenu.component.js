@@ -35,7 +35,7 @@ class MainMenu extends React.Component {
           </Menu.Item>
           {
             this.props.user &&
-            <Menu.Menu position='right'>rock
+            <Menu.Menu position='right'>
               <Menu.Item>
                 <Image src={this.props.user.images[0].url} size='mini' circular />
               </Menu.Item>

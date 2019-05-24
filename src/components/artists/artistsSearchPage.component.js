@@ -33,15 +33,15 @@ class ArtistsSearchPage extends React.Component {
   };
 
   runQuery = (keywords) => {
-    this.setState(prevState => Object.assign(prevState, {
+    this.setState({
       keywords,
       loading: true
-    }));
+    });
 
     this.props.onQueryArtists(keywords).then(() => {
-      this.setState(prevState => Object.assign(prevState, {
+      this.setState({
         loading: false
-      }));
+      });
     });
   };
 

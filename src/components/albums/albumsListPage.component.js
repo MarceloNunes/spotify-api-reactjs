@@ -67,12 +67,12 @@ class AlbumsListPage extends React.Component {
       const newCount = this.props.albums.length;
 
       if (newCount < previousCount + 25) {
-        this.setState(prevState => Object.assign(prevState, {
+        this.setState( {
           showLoadModeButton: false
-        }));
+        });
       }
     });
-  }
+  };
 
   handleLoadMoreClick = () => this.fetchAlbumListSegment();
 
@@ -85,11 +85,11 @@ class AlbumsListPage extends React.Component {
             <h1>{ this.state.artistName }</h1>
           </Container>
           <Container className='album-list'>
-            <div></div>
+            <div />
             { this.props.albums.map(album =>
-              <AlbumCard album={album}></AlbumCard>)
+              <AlbumCard album={album} />)
             }
-            <div></div>
+            <div />
           </Container>
           { this.state.showLoadModeButton &&
             <Container className='load-more-button-container'>

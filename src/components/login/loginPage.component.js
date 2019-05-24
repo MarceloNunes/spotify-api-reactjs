@@ -31,9 +31,9 @@ class LoginPage extends React.Component {
   }
 
   handleClickLoginButton = () => {
-    this.setState(prevState => Object.assign(prevState, {
+    this.setState({
       loading: true
-    }));
+    });
 
     window.location = 'https://accounts.spotify.com/authorize?client_id=' +
       config.clientId + '&redirect_uri=' +
